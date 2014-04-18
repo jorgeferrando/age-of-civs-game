@@ -1,12 +1,14 @@
 define([
-    "angular"
-], function (angular) {
+    "angular",
+    "GameController",
+    "Game"
+], function (angular, GameCtrl, GameFactory) {
     "use strict";
     var app = angular.module("app", []);
 
-    app.controller("mainCtrl",function($scope) {
-       $scope.Message="App is running!";
-    });
+    app
+        .factory("Game",GameFactory)
+        .controller("gameCtrl",GameCtrl);
 
     return app;
 });
